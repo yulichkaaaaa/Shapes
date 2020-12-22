@@ -3,7 +3,6 @@ package com.yuliana.shapes.model.entity;
 import com.yuliana.shapes.model.observer.EllipseEvent;
 import com.yuliana.shapes.model.observer.Observable;
 import com.yuliana.shapes.model.observer.Observer;
-import com.yuliana.shapes.model.observer.impl.EllipseSquareObserver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,7 +58,7 @@ public class Ellipse extends Shape2D implements Observable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Ellipse ellipse = (Ellipse) o;
-        return ellipseId == ellipse.ellipseId &&
+        return ellipseId == ellipse.getShapeId() &&
                 firstPoint.equals(ellipse.firstPoint) &&
                 secondPoint.equals(ellipse.secondPoint);
     }
@@ -68,14 +67,14 @@ public class Ellipse extends Shape2D implements Observable {
     public int hashCode() {
         int result = 31 * firstPoint.hashCode();
         result = 31 * result * secondPoint.hashCode();
-        result = 31 * result * (int)ellipseId;
+        result = 31 * result * (int)getShapeId();
         return result;
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Ellipse{");
-        sb.append("ellipseId=").append(ellipseId);
+        sb.append("ellipseId=").append(this.getShapeId());
         sb.append(", firstPoint=").append(firstPoint);
         sb.append(", secondPoint=").append(secondPoint);
         sb.append('}');

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataParser {
-    private static final String DELIMITER = " ";
+    private static final String DELIMITER = "\\s";
 
     public List<Integer> parseEllipseData(String data){
         List<Integer> ellipseCoordinates = new ArrayList<>();
