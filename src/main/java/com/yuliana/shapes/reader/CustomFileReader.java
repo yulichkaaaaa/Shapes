@@ -21,9 +21,11 @@ public class CustomFileReader {
 
     public List<String> readData(String fileName){
         List<String> lines = new ArrayList<>();
-        Path path = Paths.get(DEFAULT_FILE_NAME);
+        Path path;
         if(FileValidator.isFileValid(fileName)) {
             path = Paths.get(fileName);
+        }else {
+            path = Paths.get(DEFAULT_FILE_NAME);
         }
         try(Stream<String> lineStream = Files.lines(path)) {
             lines = lineStream.collect(Collectors.toList());

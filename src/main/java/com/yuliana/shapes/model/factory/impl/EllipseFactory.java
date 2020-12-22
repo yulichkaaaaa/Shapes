@@ -7,7 +7,7 @@ import com.yuliana.shapes.util.IdGenerator;
 
 import java.util.List;
 
-public class EllipseFactory extends ShapeFactory<Ellipse> {
+public class EllipseFactory implements ShapeFactory<Ellipse> {
     @Override
     public Ellipse createInstance(List<Integer> coordinates) {
         Point firstPoint = new Point(coordinates.get(0), coordinates.get(1));

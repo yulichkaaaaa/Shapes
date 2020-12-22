@@ -1,27 +1,27 @@
 package com.yuliana.shapes.model.entity;
 
-public class Shape2D {
+abstract public class Shape2D {
 
-    private String name;
+    private long shapeId;
 
-    public Shape2D(String name) {
-        this.name = name;
+    public Shape2D(long shapeId) {
+        this.shapeId = shapeId;
     }
 
     public Shape2D(){}
 
-    public String getName() {
-        return name;
+    public long getShapeId() {
+        return shapeId;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setShapeId(long shapeId) {
+        this.shapeId = shapeId;
     }
 
     @Override
     public String toString() {
         final StringBuilder sb = new StringBuilder("Shape2D{");
-        sb.append("name='").append(name).append('\'');
+        sb.append("name='").append(shapeId).append('\'');
         sb.append('}');
         return sb.toString();
     }

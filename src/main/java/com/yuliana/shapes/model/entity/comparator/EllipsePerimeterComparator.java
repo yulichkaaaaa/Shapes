@@ -4,7 +4,7 @@ import com.yuliana.shapes.model.entity.EllipseProperty;
 
 import java.util.Comparator;
 
-public class EllipseComparePerimeterAsc implements Comparator<EllipseProperty> {
+public class EllipsePerimeterComparator implements Comparator<EllipseProperty> {
     @Override
     public int compare(EllipseProperty firstProperty, EllipseProperty secondProperty) {
         Double firstPerimeter = firstProperty.getPerimeter();

@@ -1,10 +1,19 @@
 package com.yuliana.shapes.model.entity;
 
-public class Ellipse extends Shape2D{
+import com.yuliana.shapes.model.observer.EllipseEvent;
+import com.yuliana.shapes.model.observer.Observable;
+import com.yuliana.shapes.model.observer.Observer;
+import com.yuliana.shapes.model.observer.impl.EllipseSquareObserver;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Ellipse extends Shape2D implements Observable {
 
     private long ellipseId;
     private Point firstPoint;
     private Point secondPoint;
+    private List<Observer> observers = new ArrayList<>();
 
     public Ellipse(long ellipseId, Point firstPoint, Point secondPoint) {
         this.ellipseId = ellipseId;
@@ -32,6 +41,7 @@ public class Ellipse extends Shape2D{
     }
 
     public void setFirstPoint(Point firstPoint) {
+        notifyObservers();
         this.firstPoint = firstPoint;
     }
 
@@ -40,6 +50,7 @@ public class Ellipse extends Shape2D{
     }
 
     public void setSecondPoint(Point secondPoint) {
+        notifyObservers();
         this.secondPoint = secondPoint;
     }
 
@@ -71,4 +82,21 @@ public class Ellipse extends Shape2D{
         return sb.toString();
     }
 
+    @Override
+    public void attach(Observer observer) {
+        if(observer != null) {
+            observers.add(observer);
+        }
+    }
+
+    @Override
+    public void detach(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        EllipseEvent event = new EllipseEvent(this);
+        observers.forEach(observer -> observer.parameterChanged(event));
+    }
 }
