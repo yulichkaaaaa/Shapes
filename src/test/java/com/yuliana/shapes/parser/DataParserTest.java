@@ -14,8 +14,8 @@ public class DataParserTest {
 
     private DataParser parser;
     private List<Integer> expected;
-    private static final String CORRECT_ELLIPSE_DATA = "12 2 14 7\n";
-    private static final String INCORRECT_ELLIPSE_DATA = "12s 2 14 7\n";
+    private static final String CORRECT_ELLIPSE_DATA = "12 2 14 7";
+    private static final String INCORRECT_ELLIPSE_DATA = "12s 2 14 7";
 
     @BeforeTest
     private void init(){

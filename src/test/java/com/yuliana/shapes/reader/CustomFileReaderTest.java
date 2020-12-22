@@ -19,16 +19,16 @@ public class CustomFileReaderTest {
     @BeforeTest
     private void init(){
         fileReader = new CustomFileReader();
-        lines = new ArrayList<>(Arrays.asList("32 12 43 54\n" +
-                                              "1 2 4 5\n" +
-                                              "12f 32 5 7\n" +
-                                              "-1 -3 34 5\n"));
-        defaultLines = new ArrayList<>(Arrays.asList("1 3 5 6\n" +
-                                                     "12 3 4 6\n" +
-                                                     "0 0 89 90\n" +
-                                                     "23 0 9 90\n" +
-                                                     "h3 32 23 32\n" +
-                                                     "-1 -1 5 5\n"));
+        lines = new ArrayList<>(Arrays.asList("32 12 43 54",
+                                              "1 2 4 5",
+                                              "12f 32 5 7",
+                                              "-1 -3 34 5"));
+        defaultLines = new ArrayList<>(Arrays.asList("1 3 5 6",
+                                                     "12 3 4 6",
+                                                     "0 0 89 90",
+                                                     "23 0 9 90",
+                                                     "h3 32 23 32",
+                                                     "-1 -1 5 5"));
     }
 
     @Test
